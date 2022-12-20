@@ -120,6 +120,64 @@ namespace ArchivosTarea
         {
             respaldarTodo();
         }
+
+        private void buttonRecuperarAuxiliar_Click(object sender, EventArgs e)
+        {
+            List<Transaccion> Auxiliar = new List<Transaccion>();
+
+            string ruta = @"C:\Users\andre\Desktop\Andres\transacciones.csv";
+            try
+            {
+                labelSalida.Text = "";
+                FileStream archivo = new FileStream(ruta, FileMode.Open, FileAccess.Read);
+                StreamReader leedor = new StreamReader(archivo);
+
+                string? linea = leedor.ReadLine();
+
+                for (int numRegistros = 0; linea != null; numRegistros++)
+                {
+                    string[] serialTransaccion = linea.Split(separador);
+                    int numFactura = int.Parse(serialTransaccion[0]);
+                    DateTime fechaVenta = DateTime.Parse(serialTransaccion[1]);
+                    uint cedulaCliente = uint.Parse(serialTransaccion[2]);
+                    string nombreCliente = serialTransaccion[3];
+                    string direccionCliente = serialTransaccion[4];
+                    List<Producto> productosVendidos = new List<Producto>();
+
+                    labelSalida.Text += $"\n TRANSACCION NÚMERO {numRegistros + 1}\n Nombre: {nombreCliente}, Cédula: {cedulaCliente}, Dirección: {direccionCliente}";
+                    labelSalida.Text += $"\n Fecha de Venta: {fechaVenta}, Número de Factura: {numFactura}\n";
+                    labelSalida.Text += $"PRODUCTOS\n";
+
+                    for (int i = 0; i < int.Parse(serialTransaccion[serialTransaccion.Length - 1]); i++)
+                    {
+                        linea = leedor.ReadLine();
+                        string[] serialProducto = linea.Split(separador);
+                        string nombreProducto = serialProducto[0];
+                        uint cantidadProducto = uint.Parse(serialProducto[1]);
+                        double precioUnidad = double.Parse(serialProducto[2]);
+                        bool exentoImpuestos = bool.Parse(serialProducto[3]);
+                        productosVendidos.Add(new Producto(nombreProducto, cantidadProducto, precioUnidad, exentoImpuestos));
+                    }
+
+                    foreach (Producto producto in productosVendidos)
+                    {
+
+                        labelSalida.Text += $"Nombre del Producto: {producto.NombreProducto}, Cantidad: {producto.CantidadProducto}, Precio: {producto.PrecioUnidad}, Exento: {producto.ExentoImpuestos}\n";
+                    }
+
+                    if (numRegistros == 2) break;
+                    linea = leedor.ReadLine();
+                }
+                leedor.Close();
+                archivo.Close();
+            } catch(Exception ex)
+            {
+                MessageBox.Show("No se puede abrir un auxiliar sin haber respaldado los datos anteriormente", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+        }
     }
 
     

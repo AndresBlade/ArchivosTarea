@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonRespaldarTodo = new System.Windows.Forms.Button();
+            this.buttonRecuperarAuxiliar = new System.Windows.Forms.Button();
+            this.labelSalida = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonRespaldarTodo
@@ -42,12 +44,32 @@
             this.buttonRespaldarTodo.UseVisualStyleBackColor = true;
             this.buttonRespaldarTodo.Click += new System.EventHandler(this.buttonRespaldarTodo_Click);
             // 
+            // buttonRecuperarAuxiliar
+            // 
+            this.buttonRecuperarAuxiliar.Location = new System.Drawing.Point(70, 87);
+            this.buttonRecuperarAuxiliar.Name = "buttonRecuperarAuxiliar";
+            this.buttonRecuperarAuxiliar.Size = new System.Drawing.Size(273, 34);
+            this.buttonRecuperarAuxiliar.TabIndex = 1;
+            this.buttonRecuperarAuxiliar.Text = "Botón 2 (Abrir Auxiliar)";
+            this.buttonRecuperarAuxiliar.UseVisualStyleBackColor = true;
+            this.buttonRecuperarAuxiliar.Click += new System.EventHandler(this.buttonRecuperarAuxiliar_Click);
+            // 
+            // labelSalida
+            // 
+            this.labelSalida.AutoSize = true;
+            this.labelSalida.Location = new System.Drawing.Point(420, 68);
+            this.labelSalida.Name = "labelSalida";
+            this.labelSalida.Size = new System.Drawing.Size(0, 25);
+            this.labelSalida.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1002, 592);
+            this.Controls.Add(this.labelSalida);
+            this.Controls.Add(this.buttonRecuperarAuxiliar);
             this.Controls.Add(this.buttonRespaldarTodo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 480);
@@ -55,11 +77,14 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Ventas";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private Button buttonRespaldarTodo;
+        private Button buttonRecuperarAuxiliar;
+        private Label labelSalida;
     }
 }
