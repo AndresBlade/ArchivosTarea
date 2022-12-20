@@ -34,7 +34,7 @@ namespace ArchivosTarea
 
         private void respaldarTodo()
         {
-            string ruta = @"C:\Users\andre\Desktop\Andres\transacciones.csv";
+            string ruta = @".\transacciones.csv";
             FileStream archivo = new FileStream(ruta, FileMode.Create, FileAccess.Write);
 
             StreamWriter escritor = new StreamWriter(archivo);
@@ -49,7 +49,7 @@ namespace ArchivosTarea
 
         private void recuperar()
         {
-            string ruta = @"C:\Users\andre\Desktop\Andres\transacciones.csv";
+            string ruta = @".\transacciones.csv";
             FileStream archivo = new FileStream(ruta, FileMode.Open, FileAccess.Read);
 
             StreamReader leedor = new StreamReader(archivo);
@@ -125,7 +125,7 @@ namespace ArchivosTarea
         {
             List<Transaccion> Auxiliar = new List<Transaccion>();
 
-            string ruta = @"C:\Users\andre\Desktop\Andres\transacciones.csv";
+            string ruta = @".\transacciones.csv";
             try
             {
                 labelSalida.Text = "";
@@ -177,6 +177,53 @@ namespace ArchivosTarea
             }
 
             
+        }
+
+        private void buttonRespaldoBinario_Click(object sender, EventArgs e)
+        {
+            string ruta = @".\transacciones.bin";
+            FileStream archivo = new FileStream(ruta, FileMode.Create, FileAccess.Write);
+
+            BinaryWriter escritor = new BinaryWriter(archivo);
+
+            foreach (Transaccion transaccion in registroVentas)
+            {
+                bool respaldable = true;
+                foreach (Producto producto in transaccion.ProductosVendidos)
+                {
+                    if (producto.CantidadProducto > 3) respaldable = false;
+                }
+
+                if (respaldable)
+                {
+                    escritor.Write(serializarTransaccion(transaccion));
+                }
+            }
+
+            escritor.Close();
+            archivo.Close();
+        }
+
+        private void buttonRespaldoExencion_Click(object sender, EventArgs e)
+        {
+            string ruta = @".\productos.csv";
+            FileStream archivo = new FileStream(ruta, FileMode.Create, FileAccess.Write);
+
+            StreamWriter escritor = new StreamWriter(archivo);
+
+            foreach (Transaccion transaccion in registroVentas)
+            {
+                foreach (Producto producto in transaccion.ProductosVendidos)
+                {
+                    if (producto.ExentoImpuestos)
+                    {
+                        escritor.WriteLine(producto.NombreProducto + separador + producto.CantidadProducto + separador + transaccion.NumFactura);
+                    }
+                }
+            }
+
+            escritor.Close();
+            archivo.Close();
         }
     }
 

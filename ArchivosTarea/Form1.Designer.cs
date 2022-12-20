@@ -32,6 +32,8 @@
             this.buttonRespaldarTodo = new System.Windows.Forms.Button();
             this.buttonRecuperarAuxiliar = new System.Windows.Forms.Button();
             this.labelSalida = new System.Windows.Forms.Label();
+            this.buttonRespaldoBinario = new System.Windows.Forms.Button();
+            this.buttonRespaldoExencion = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonRespaldarTodo
@@ -62,12 +64,34 @@
             this.labelSalida.Size = new System.Drawing.Size(0, 25);
             this.labelSalida.TabIndex = 2;
             // 
+            // buttonRespaldoBinario
+            // 
+            this.buttonRespaldoBinario.Location = new System.Drawing.Point(70, 140);
+            this.buttonRespaldoBinario.Name = "buttonRespaldoBinario";
+            this.buttonRespaldoBinario.Size = new System.Drawing.Size(273, 34);
+            this.buttonRespaldoBinario.TabIndex = 3;
+            this.buttonRespaldoBinario.Text = "Botón 3 (Respaldo Binario)";
+            this.buttonRespaldoBinario.UseVisualStyleBackColor = true;
+            this.buttonRespaldoBinario.Click += new System.EventHandler(this.buttonRespaldoBinario_Click);
+            // 
+            // buttonRespaldoExencion
+            // 
+            this.buttonRespaldoExencion.Location = new System.Drawing.Point(70, 197);
+            this.buttonRespaldoExencion.Name = "buttonRespaldoExencion";
+            this.buttonRespaldoExencion.Size = new System.Drawing.Size(338, 34);
+            this.buttonRespaldoExencion.TabIndex = 4;
+            this.buttonRespaldoExencion.Text = "Botón 4 (Respaldo por Exención)";
+            this.buttonRespaldoExencion.UseVisualStyleBackColor = true;
+            this.buttonRespaldoExencion.Click += new System.EventHandler(this.buttonRespaldoExencion_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1002, 592);
+            this.Controls.Add(this.buttonRespaldoExencion);
+            this.Controls.Add(this.buttonRespaldoBinario);
             this.Controls.Add(this.labelSalida);
             this.Controls.Add(this.buttonRecuperarAuxiliar);
             this.Controls.Add(this.buttonRespaldarTodo);
@@ -86,5 +110,7 @@
         private Button buttonRespaldarTodo;
         private Button buttonRecuperarAuxiliar;
         private Label labelSalida;
+        private Button buttonRespaldoBinario;
+        private Button buttonRespaldoExencion;
     }
 }

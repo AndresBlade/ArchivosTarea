@@ -27,6 +27,8 @@ namespace ArchivosTarea
             Producto carbonParrilla = new Producto("Bolsa de carbón para parrilla", 1, 35, true);
             Producto mayonesa = new Producto("Mayonesa", 2, 7, false);
 
+            //Estos productos y registros fueron creados solo por facilidad y testeo. Si el evaluador desea, puede crear productos más variados para probar
+
             registroVentas.Add(new Transaccion(1, new DateTime(2022, 12, 18), 30266948, new List<Producto>() { manzana, harinaMaiz, sopaInstantanea}, "Andrés", "Villa Crepuscular"));
             registroVentas.Add(new Transaccion(1235343, new DateTime(2021, 06, 15), 27340232, new List<Producto>() { mayonesa, pasta}, "Julio", "Santa Elena"));
             registroVentas.Add(new Transaccion(2904, new DateTime(2010, 1, 4), 23443442, new List<Producto>() { carbonParrilla}, "Eva", "La Concordia"));
