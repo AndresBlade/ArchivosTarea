@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.labelTransacciones = new System.Windows.Forms.Label();
+            this.buttonRespaldarTodo = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // labelTransacciones
+            // buttonRespaldarTodo
             // 
-            this.labelTransacciones.AutoSize = true;
-            this.labelTransacciones.Location = new System.Drawing.Point(12, 9);
-            this.labelTransacciones.Name = "labelTransacciones";
-            this.labelTransacciones.Size = new System.Drawing.Size(119, 25);
-            this.labelTransacciones.TabIndex = 0;
-            this.labelTransacciones.Text = "Transacciones";
+            this.buttonRespaldarTodo.Location = new System.Drawing.Point(70, 37);
+            this.buttonRespaldarTodo.Name = "buttonRespaldarTodo";
+            this.buttonRespaldarTodo.Size = new System.Drawing.Size(273, 34);
+            this.buttonRespaldarTodo.TabIndex = 0;
+            this.buttonRespaldarTodo.Text = "Botón 1 (Respaldar Todo)";
+            this.buttonRespaldarTodo.UseVisualStyleBackColor = true;
+            this.buttonRespaldarTodo.Click += new System.EventHandler(this.buttonRespaldarTodo_Click);
             // 
             // Form1
             // 
@@ -47,19 +48,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1002, 592);
-            this.Controls.Add(this.labelTransacciones);
+            this.Controls.Add(this.buttonRespaldarTodo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1024, 480);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Ventas";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Label labelTransacciones;
+        private Button buttonRespaldarTodo;
     }
 }

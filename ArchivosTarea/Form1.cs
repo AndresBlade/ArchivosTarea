@@ -30,8 +30,6 @@ namespace ArchivosTarea
             registroVentas.Add(new Transaccion(7442, new DateTime(2013, 11, 29), 6345020, new List<Producto>() { harinaTrigo }, "Carlos", "Los Ángeles"));
             registroVentas.Add(new Transaccion(182098483, new DateTime(2022, 3, 12), 3450444, new List<Producto>() { papa }, "Pepe", "Quíbor"));
             registroVentas.Add(new Transaccion(99044344, new DateTime(2022, 1, 1), 2990, new List<Producto>() { harinaTrigo, harinaMaiz, mayonesa }, "Ronardo", "Portugal"));
-            respaldarTodo();
-            recuperar();
         }
 
         private void respaldarTodo()
@@ -78,12 +76,6 @@ namespace ArchivosTarea
                     bool exentoImpuestos = bool.Parse(serialProducto[3]);
                     productosVendidos.Add(new Producto(nombreProducto, cantidadProducto, precioUnidad, exentoImpuestos));
                 }
-                labelTransacciones.Text += $"factura {numFactura} fecha {fechaVenta} cedula {cedulaCliente} nombre {nombreCliente} direccion {direccionCliente}\n";
-                labelTransacciones.Text += $"Productos: {int.Parse(serialTransaccion[serialTransaccion.Length - 1])}\n";
-                foreach(Producto producto in productosVendidos)
-                {
-                    labelTransacciones.Text += $"nombre producto{producto.NombreProducto} cantidad {producto.CantidadProducto} precio {producto.PrecioUnidad} exento {producto.ExentoImpuestos}\n";
-                }
                 
                 linea = leedor.ReadLine() ;
             }
@@ -122,6 +114,11 @@ namespace ArchivosTarea
             linea += producto.ExentoImpuestos;
 
             return linea;
+        }
+
+        private void buttonRespaldarTodo_Click(object sender, EventArgs e)
+        {
+            respaldarTodo();
         }
     }
 
